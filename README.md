@@ -1,8 +1,7 @@
 # Absa Zindi Challenge: Income Prediction
 
 Two years ago, I participated in the Zindi competition where the task was to predict customer-declared income based on their transactions, account information, and personal details such as gender. The best model I submitted at the time ranked 12th out of 49 active participants, which was enough to earn me a silver medal. Recently, I decided to revisit the dataset to see if I could improve my model and achieve a better performance. After redoing the entire modeling process from scratch, I was able to develop a model that would have earned 2nd place in the competition. 
-
-The link to the competition. The leaderboard is primarily determined by the private score, here's a snippet of my latest submission. https://zindi.africa/competitions/absa-customer-income-prediction-challenge
+The dataset and the results can be found here : https://zindi.africa/competitions/absa-customer-income-prediction-challenge
 
 ## So, What Did I Do Differently This Time?
 
