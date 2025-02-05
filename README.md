@@ -64,19 +64,19 @@ Here’s a visual representation of the pipeline we built:
 
 ### Key Components of the Pipeline
 1. Preprocessing
-We employed Recursive Feature Elimination (RFE) with a base estimator of a Random Forest Regressor. RFE with cross-validation is computationally intensive, so I wouldn’t recommend running this pipeline regularly unless you’re focused on discovering new features as fresh data comes in.
+  - We employed Recursive Feature Elimination (RFE) with a base estimator of a Random Forest Regressor. RFE with cross-validation is computationally intensive, so I wouldn’t recommend running this pipeline regularly unless you’re focused on discovering new features as fresh data comes in.
 
 2. Hyperparameter Tuning
-Instead of a conventional training step, we used SageMaker’s TuningStep to optimize hyperparameters. We focused on minimizing the Root Mean Squared Error (RMSE). This process was time-consuming, taking approximately an hour and 21 minutes to complete 100 iterations.
+  -Instead of a conventional training step, we used SageMaker’s TuningStep to optimize hyperparameters. We focused on minimizing the Root Mean Squared Error (RMSE). This process was time-consuming, taking approximately an hour and 21 minutes to complete 100 iterations.
 
-- The tuning job summary highlights the best-performing model with an RMSE of 5572.60.These parameters were optimized using SageMaker’s efficient hyperparameter tuning capabilities, leveraging the `SKLearn` estimator within the `sagemaker.sklearn.estimator` module. The job execution details, including logs, were managed via CloudWatch Logs, enhancing our ability to track progress and debug effectively. The tuning step ouput:
+  - The tuning job summary highlights the best-performing model with an RMSE of 5572.60.These parameters were optimized using SageMaker’s efficient hyperparameter tuning capabilities, leveraging the `SKLearn` estimator within the `sagemaker.sklearn.estimator` module. The job execution details, including logs, were managed via CloudWatch Logs, enhancing our ability to track progress and debug effectively. The tuning step ouput:
 
 
 3. Model Evaluation
-- The best model achieved an impressive RMSE of 6088 on the test set.
+  - The best model achieved an impressive RMSE of 6088 on the test set.
 
 4. Conditional Step
-- We introduced a conditional check to ensure model performance consistency. If the RMSE was ≤ 6500, we proceeded to register the model, create endpoints, and carry out transform jobs. If the RMSE exceeded this threshold, the pipeline moved into a fail-safe step for review.
+  - We introduced a conditional check to ensure model performance consistency. If the RMSE was ≤ 6500, we proceeded to register the model, create endpoints, and carry out transform jobs. If the RMSE exceeded this threshold, the pipeline moved into a fail-safe step for review.
 
 ### Custom Scripts and Challenges FInding Such Implementations online
 Our implementation relied on custom scripts for preprocessing, training, evaluation, and inference. The bespoke nature of these scripts led to several debugging sessions, often resolved through community forums and Stack Overflow. The inference script required particular attention to ensure output consistency aligned with the competition’s submission requirements.
