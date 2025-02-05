@@ -39,6 +39,8 @@ This project highlights the power of a solid exploratory data analysis (EDA), th
 
 --------
 
+# Going to production
+
 In a previous article, we shared how our model for the Absa Zindi Challenge climbed from 12th place to 2nd, driven by strategic data engineering, feature selection, and hyperparameter optimization. That phase emphasized the exploratory and model-building aspects of machine learning. Now, we’re excited to dive into the next critical step: scaling machine learning projects effectively using Amazon SageMaker.
 
 Leveraging Amazon SageMaker for Scalable ML Workflows
