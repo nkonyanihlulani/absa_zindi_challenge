@@ -49,7 +49,7 @@ The next phase of this project involves setting up a pipeline to automate prepro
 
 In a previous article, we shared how our model for the Absa Zindi Challenge climbed from 12th place to 2nd, driven by strategic data engineering, feature selection, and hyperparameter optimization. That phase emphasized the exploratory and model-building aspects of machine learning. Now, we’re excited to dive into the next critical step: scaling machine learning projects effectively using Amazon SageMaker.
 
-### everaging Amazon SageMaker for Scalable ML Workflows
+### Leveraging Amazon SageMaker for Scalable ML Workflows
 Amazon SageMaker, a fully managed service, offers a comprehensive suite of tools to streamline machine learning workflows at a relatively low cost. Its ability to seamlessly scale data science workloads by leveraging AWS infrastructure was pivotal for our project. We specifically utilized SageMaker Studio, an integrated development environment, to kickstart and manage our inference pipelines, enabling us to transition from experimentation to production with greater efficiency.
 
 Here’s a link to the full implementation:
@@ -69,14 +69,14 @@ We employed Recursive Feature Elimination (RFE) with a base estimator of a Rando
 2. Hyperparameter Tuning
 Instead of a conventional training step, we used SageMaker’s TuningStep to optimize hyperparameters. We focused on minimizing the Root Mean Squared Error (RMSE). This process was time-consuming, taking approximately an hour and 21 minutes to complete 100 iterations.
 
-The tuning job summary highlights the best-performing model with an RMSE of 5572.60.These parameters were optimized using SageMaker’s efficient hyperparameter tuning capabilities, leveraging the `SKLearn` estimator within the `sagemaker.sklearn.estimator` module. The job execution details, including logs, were managed via CloudWatch Logs, enhancing our ability to track progress and debug effectively. The tuning step ouput:
+- The tuning job summary highlights the best-performing model with an RMSE of 5572.60.These parameters were optimized using SageMaker’s efficient hyperparameter tuning capabilities, leveraging the `SKLearn` estimator within the `sagemaker.sklearn.estimator` module. The job execution details, including logs, were managed via CloudWatch Logs, enhancing our ability to track progress and debug effectively. The tuning step ouput:
 
 
 3. Model Evaluation
-The best model achieved an impressive RMSE of 6088 on the test set.
+- The best model achieved an impressive RMSE of 6088 on the test set.
 
 4. Conditional Step
-We introduced a conditional check to ensure model performance consistency. If the RMSE was ≤ 6500, we proceeded to register the model, create endpoints, and carry out transform jobs. If the RMSE exceeded this threshold, the pipeline moved into a fail-safe step for review.
+- We introduced a conditional check to ensure model performance consistency. If the RMSE was ≤ 6500, we proceeded to register the model, create endpoints, and carry out transform jobs. If the RMSE exceeded this threshold, the pipeline moved into a fail-safe step for review.
 
 ### Custom Scripts and Challenges FInding Such Implementations online
 Our implementation relied on custom scripts for preprocessing, training, evaluation, and inference. The bespoke nature of these scripts led to several debugging sessions, often resolved through community forums and Stack Overflow. The inference script required particular attention to ensure output consistency aligned with the competition’s submission requirements.
