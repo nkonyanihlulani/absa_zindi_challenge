@@ -49,7 +49,7 @@ The next phase of this project involves setting up a pipeline to automate prepro
 
 In a previous article, we shared how our model for the Absa Zindi Challenge climbed from 12th place to 2nd, driven by strategic data engineering, feature selection, and hyperparameter optimization. That phase emphasized the exploratory and model-building aspects of machine learning. Now, we’re excited to dive into the next critical step: scaling machine learning projects effectively using Amazon SageMaker.
 
-Leveraging Amazon SageMaker for Scalable ML Workflows
+### everaging Amazon SageMaker for Scalable ML Workflows
 Amazon SageMaker, a fully managed service, offers a comprehensive suite of tools to streamline machine learning workflows at a relatively low cost. Its ability to seamlessly scale data science workloads by leveraging AWS infrastructure was pivotal for our project. We specifically utilized SageMaker Studio, an integrated development environment, to kickstart and manage our inference pipelines, enabling us to transition from experimentation to production with greater efficiency.
 
 Here’s a link to the full implementation:
@@ -62,7 +62,7 @@ Our End-to-End Pipeline
 Here’s a visual representation of the pipeline we built:
 
 
-Key Components of the Pipeline
+### Key Components of the Pipeline
 1. Preprocessing
 We employed Recursive Feature Elimination (RFE) with a base estimator of a Random Forest Regressor. RFE with cross-validation is computationally intensive, so I wouldn’t recommend running this pipeline regularly unless you’re focused on discovering new features as fresh data comes in.
 
@@ -78,13 +78,13 @@ The best model achieved an impressive RMSE of 6088 on the test set.
 4. Conditional Step
 We introduced a conditional check to ensure model performance consistency. If the RMSE was ≤ 6500, we proceeded to register the model, create endpoints, and carry out transform jobs. If the RMSE exceeded this threshold, the pipeline moved into a fail-safe step for review.
 
-Custom Scripts and Challenges FInding Such Implementations online
+### Custom Scripts and Challenges FInding Such Implementations online
 Our implementation relied on custom scripts for preprocessing, training, evaluation, and inference. The bespoke nature of these scripts led to several debugging sessions, often resolved through community forums and Stack Overflow. The inference script required particular attention to ensure output consistency aligned with the competition’s submission requirements.
 
-Enhanced Monitoring with Logging
+### Enhanced Monitoring with Logging
 To improve debugging and traceability, we implemented comprehensive logging. This facilitated better tracking of job executions through CloudWatch Logs.
 
-Final Thoughts
+### Final Thoughts
 Scaling machine learning models from prototypes to production can be complex, especially with custom deployments. However, leveraging tools like Amazon SageMaker, coupled with robust monitoring and custom scripting, made our journey both efficient and insightful. We hope this article provides valuable insights for your own ML scaling endeavors.
 
 Feel free to connect and share your thoughts or experiences with similar projects!
