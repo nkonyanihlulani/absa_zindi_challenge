@@ -37,6 +37,12 @@ Despite achieving a strong score, the residuals displayed heteroscedasticity �
 ## Reflections
 This project highlights the power of a solid exploratory data analysis (EDA), thoughtful feature engineering, and advanced hyperparameter optimization techniques in significantly improving a model's performance — even when using the same algorithms. It's a reminder that, in data science, a deeper understanding of the data and refined modeling techniques can lead to better results.
 
+By revisiting the dataset and applying these techniques, I was able to make a tangible improvement to my model's performance. It's always exciting to see how small adjustments can lead to big improvements, and this project served as a great reminder of the importance of continuously iterating and refining our models.
+
+## Next Steps (Going to Production):
+The next phase of this project involves setting up a pipeline to automate preprocessing, training, hyperparameter optimization, evaluation, and deployment of the model. We are going to leverage SageMaker Inference Pipelines.
+
+
 --------
 
 # Going to production
@@ -82,8 +88,3 @@ Final Thoughts
 Scaling machine learning models from prototypes to production can be complex, especially with custom deployments. However, leveraging tools like Amazon SageMaker, coupled with robust monitoring and custom scripting, made our journey both efficient and insightful. We hope this article provides valuable insights for your own ML scaling endeavors.
 
 Feel free to connect and share your thoughts or experiences with similar projects!
-
-By revisiting the dataset and applying these techniques, I was able to make a tangible improvement to my model's performance. It's always exciting to see how small adjustments can lead to big improvements, and this project served as a great reminder of the importance of continuously iterating and refining our models.
-
-## Next Steps (Going to Production):
-The next phase of this project involves setting up a pipeline to automate preprocessing, training, hyperparameter optimization, evaluation, and deployment of the model. We are going to leverage SageMaker Inference Pipelines.
